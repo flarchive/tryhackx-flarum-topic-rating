@@ -1,0 +1,404 @@
+@star-color: #f5a623;
+@star-empty-color: #d0d0d0;
+@star-hover-color: #ffcc02;
+
+.StarRating {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1;
+    flex-direction: column;
+}
+
+.StarRating--loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.StarRating-starsWrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.StarRating-stars {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: default;
+}
+
+.StarRating--interactive .StarRating-stars {
+    cursor: pointer;
+}
+
+.StarRating-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 1070;
+    text-align: center;
+    min-width: 100px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 5px solid transparent;
+        border-top-color: rgba(0, 0, 0, 0.85);
+    }
+}
+
+.StarRating-starsWrap:hover .StarRating-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.StarRating-tooltipLabel {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.StarRating-tooltipStars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 9px;
+}
+
+.StarRating-tooltipStar--full {
+    color: @star-color;
+}
+
+.StarRating-tooltipStar--half {
+    color: @star-color;
+}
+
+.StarRating-tooltipStar--empty {
+    color: #888;
+}
+
+.StarRating-star {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    width: 1.1em;
+    height: 1.1em;
+    overflow: hidden;
+
+    .StarRating-starIcon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: @star-empty-color;
+        transition: color 0.15s ease;
+        pointer-events: none;
+    }
+
+    .StarRating-starHalf {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        z-index: 2;
+
+        &--left {
+            left: 0;
+        }
+
+        &--right {
+            right: 0;
+        }
+    }
+
+    &--full .StarRating-starIcon {
+        color: @star-color;
+    }
+
+    &--half .StarRating-starIcon {
+        background: linear-gradient(90deg, @star-color 50%, @star-empty-color 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    &--empty .StarRating-starIcon {
+        color: @star-empty-color;
+    }
+}
+
+.StarRating--small {
+    .StarRating-star {
+        font-size: 1.2em;
+    }
+}
+
+.StarRating--normal {
+    .StarRating-star {
+        font-size: 1.2em;
+        width: 1.3em;
+        height: 1.3em;
+    }
+}
+
+.StarRating-count {
+    font-size: 12px;
+    color: #888;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+        color: @star-color;
+        text-decoration: underline;
+    }
+}
+
+.DiscussionHero-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DiscussionHero-items .StarRating {
+    display: flex;
+    flex-direction: column;
+    margin: 4px 0;
+
+    .StarRating-star {
+        font-size: 1.4em;
+        width: 1.3em;
+        height: 1.2em;
+    }
+
+    .StarRating-count {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.75);
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.DiscussionListItem {
+    position: relative;
+}
+
+.DiscussionListItem-info .item-rating {
+    position: absolute;
+    right: 80px;
+    top: 35px;
+
+    .StarRating {
+        flex-direction: row;
+    }
+}
+
+.RatingsModal {
+    .Modal-body {
+        padding: 0;
+    }
+
+    .Modal-close .Button {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+
+        &:focus,
+        &:focus-visible {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: transparent !important;
+            color: inherit;
+            background: transparent;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.RatingsModal-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.RatingsModal-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e8e8e8;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.RatingsModal-item-avatar {
+    flex-shrink: 0;
+    margin-right: 12px;
+
+    .Avatar {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.RatingsModal-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.RatingsModal-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.RatingsModal-item-username {
+    font-weight: 600;
+    color: inherit;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.RatingsModal-item-date {
+    font-size: 11px;
+    color: #999;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.RatingsModal-item-date-prefix {
+    font-style: italic;
+}
+
+.RatingsModal-item-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.RatingsModal-item-value {
+    font-size: 12px;
+    color: #888;
+    margin-left: 4px;
+}
+
+.RatingsModal-empty {
+    text-align: center;
+    padding: 30px 15px;
+    color: #999;
+}
+
+.StarDisplay-container {
+    display: inline-flex;
+    gap: 1px;
+    font-size: 13px;
+}
+
+.StarDisplay {
+    &--full {
+        color: @star-color;
+    }
+
+    &--half {
+        background: linear-gradient(90deg, @star-color 50%, @star-empty-color 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    &--empty {
+        color: @star-empty-color;
+    }
+}
+
+.ResetRatingsModal {
+    .Modal-body {
+        padding: 20px;
+    }
+
+    .Modal-close .Button {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+
+        &:focus,
+        &:focus-visible {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: transparent !important;
+            color: inherit;
+            background: transparent;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.ResetRatingsModal-content {
+    text-align: center;
+}
+
+.ResetRatingsModal-icon {
+    font-size: 40px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.ResetRatingsModal-message {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.ResetRatingsModal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .Button--danger {
+        background: #e74c3c;
+        color: #fff;
+        border: none;
+
+        &:hover {
+            background: #c0392b;
+        }
+    }
+}
+
+.LastRatedInfo {
+    font-size: 12px;
+    color: #999;
+
+    .LastRatedInfo-label {
+        font-weight: 500;
+    }
+}

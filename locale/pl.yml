@@ -1,0 +1,46 @@
+tryhackx-topic-rating:
+  admin:
+    settings:
+      enabled_label: Włącz ocenianie tematów
+      enabled_help: Pozwól użytkownikom oceniać tematy systemem 5 gwiazdek.
+      allow_unactivated_label: Zezwól nieaktywowanym kontom na ocenianie
+      allow_unactivated_help: Po włączeniu użytkownicy, którzy nie potwierdzili adresu e-mail, mogą oceniać tematy.
+    permissions:
+      rate_label: Ocenianie tematów
+      toggle_label: Włączanie/wyłączanie oceny w tematach
+      reset_label: Resetowanie wszystkich ocen w tematach
+    support:
+      button: Wesprzyj rozwój
+      title: Wesprzyj tę modyfikację
+      description: Jeśli uważasz tę modyfikację za przydatną, rozważ wsparcie jej rozwoju niewielką darowizną. Każdy wkład pomaga utrzymać projekt przy życiu.
+      copy: Kopiuj adres
+      thanks: Dziękuję za wsparcie!
+
+  forum:
+    tooltip:
+      login_required: Musisz być zalogowany aby ocenić.
+      activation_required: Musisz aktywować swoje konto, aby oceniać.
+      rate_this: Oceń ten temat
+      rate_first: Oceń jako pierwszy!
+      your_rating: "Twoja ocena:"
+
+    rating_count: "Oceny: {count}"
+    last_rated: "Last Rate:"
+
+    controls:
+      enable_rating: Włącz ocenę
+      disable_rating: Wyłącz ocenę
+      reset_ratings: Wyczyść wszystkie oceny
+      reset_confirm: Czy na pewno chcesz usunąć wszystkie oceny tego tematu? Tej operacji nie można cofnąć.
+
+    reset_modal:
+      title: Resetowanie ocen
+      message: "Czy na pewno chcesz usunąć wszystkie oceny ({count}) tego tematu? Tej operacji nie można cofnąć."
+      confirm: Resetuj oceny
+      cancel: Anuluj
+
+    ratings_modal:
+      title: "Oceny ({count})"
+      empty: Brak ocen.
+      deleted_user: "[usunięty]"
+      updated_prefix: "zmieniono "
