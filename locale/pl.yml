@@ -1,0 +1,148 @@
+tryhackx-topic-rating:
+  admin:
+    settings:
+      enabled_label: Włącz ocenianie tematów
+      enabled_help: Pozwól użytkownikom oceniać tematy systemem 5 gwiazdek.
+      show_on_list_label: Pokaż ocenę na liście tematów
+      show_on_list_help: Wyświetlaj ocenę (gwiazdki) na liście tematów (stronie głównej). Gdy wyłączone, ocena nadal pojawia się na stronie tematu. Domyślnie włączone.
+      rate_on_list_label: Pozwól oceniać z listy tematów
+      rate_on_list_help: Pozwól użytkownikom oceniać tematy bezpośrednio z listy przez kliknięcie gwiazdek (z podświetleniem przy najechaniu), tak jak na stronie tematu. Gdy wyłączone, lista pokazuje ocenę tylko do odczytu. Domyślnie włączone.
+      hide_empty_for_nonvoters_label: Ukryj puste gwiazdki przed osobami bez prawa do oceny
+      hide_empty_for_nonvoters_help: Na liście tematów, gdy temat nie ma jeszcze ocen, nie renderuj widżetu gwiazdek dla osób, które nie mogą go oceniać (goście, ograniczone grupy). Tematy z istniejącymi ocenami nadal się pokazują. Domyślnie wyłączone.
+      allow_unactivated_label: Zezwól nieaktywowanym kontom na ocenianie
+      allow_unactivated_help: Po włączeniu użytkownicy, którzy nie potwierdzili adresu e-mail, mogą oceniać tematy.
+      show_moderation_controls_label: Zawsze pokazuj kontrolki oceniania w menu tematu
+      show_moderation_controls_help: Domyślnie „Wyłącz ocenę" i „Wyczyść wszystkie oceny" pojawiają się w menu ⋮ tematu tylko gdy ocena jest widoczna na danym temacie — są ukryte, gdy tagi nie pozwalają tam oceniać (zarządzanie ukrytą oceną nic nie wnosi). Włącz, aby pokazywać je zawsze — np. do zarządzania ocenami tam, gdzie widżet jest ukryty. Nadal wymaga odpowiednich uprawnień moderacji. Domyślnie wyłączone.
+      realtime_enabled_label: Aktualizacje ocen na żywo
+      realtime_enabled_help: Gdy włączone, otwarte strony tematów odpytują w tle, więc oceny aktualizują się niemal w czasie rzeczywistym. Wyłącz, aby całkowicie zatrzymać polling w tle — oceny odświeżą się wtedy tylko po akcji użytkownika lub przeładowaniu strony (lżej dla serwera). Domyślnie włączone.
+      poll_interval_label: Interwał aktualizacji na żywo (sekundy)
+      poll_interval_help: Jak często otwarta strona tematu sprawdza nowe oceny, w sekundach (5–300, domyślnie 8). Wyższe wartości zmniejszają obciążenie serwera na ruchliwych forach; średnia oceny aktualizuje się tylko nieco wolniej. Dotyczy strony tematu — okno z listą ocen ma własne, szybsze odświeżanie.
+
+      tag_config_label: Uprawnienia oceniania per tag
+      tag_config_help: |
+        Aktywne tylko gdy wbudowane rozszerzenie Tagi jest włączone. Dla każdego głównego tagu wybierz:
+        "Włączone" (domyślnie — każdy z globalnym uprawnieniem może oceniać),
+        "Wyłączone" (nikt nie może oceniać — chyba że posiada uprawnienie omijania),
+        lub "Wybrane grupy" (tylko wskazane grupy mogą oceniać).
+        Gdy główny tag ma stan "Włączone" lub "Wybrane grupy", rozwiń go aby nadpisać poszczególne sub-tagi
+        ("Dziedzicz" = zgodnie z rodzicem).
+        Gdy dyskusja ma wiele tagów, wygrywa NAJBARDZIEJ PERMISYWNE ustawienie — pojedynczy tag "Wyłączony" NIE blokuje oceniania, jeśli inny z tagów tematu na nie pozwala. Temat jest nieoceniany dopiero gdy WSZYSTKIE jego tagi są "Wyłączone" (grupy z omijaniem nadal mogą oceniać).
+      tag_admin_note: |
+        Flarum twardo daje administratorom WSZYSTKIE uprawnienia (w tym omijanie) — nie da się tego cofnąć w siatce uprawnień poniżej. Aby kontrolować to dla tego rozszerzenia, użyj wyboru grup w ustawieniu "Omijanie blokad tag-owych" poniżej. Omijanie blokad przez administratorów będzie działać tylko wtedy, gdy grupa Administratorzy jest jawnie wybrana.
+      bypass_groups_label: Omijanie blokad tag-owych
+      bypass_groups_help: Wybierz grupy, które mogą omijać ograniczenia oceniania tagów. Jeśli nie wybierzesz żadnej grupy, omijanie ograniczeń nie będzie dostępne dla żadnej grupy (z wyjątkiem administratorów, zależnie od ustawienia powyżej).
+      bypass_select_all: Zaznacz wszystkie
+      bypass_clear_all: Wyczyść
+      tag_hierarchy_hint: Tagi są płaskie (żaden nie ma rodzica). Aby pokazały się rozwijane sub-tagi, w Admin → Tags edytuj tag i wybierz "Parent tag".
+      tags_only_secondary: Brak primary tagów. Oznacz przynajmniej jeden tag jako primary w Admin → Tags aby pojawił się tutaj jako karta.
+      tag_overrides_count: "{count} nadpisań"
+      tag_state_enabled: Włączone
+      tag_state_inherit: Dziedzicz
+      tag_state_disabled: Wyłączone
+      tag_state_groups: Wybrane grupy
+      tag_no_groups: Brak dostępnych grup do wyboru.
+      tag_expand_all: Rozwiń wszystkie
+      tag_collapse_all: Zwiń wszystkie
+      tags_unavailable: Rozszerzenie Tagi musi być zainstalowane i włączone aby skorzystać z uprawnień per tag.
+      tags_empty: Brak tagów. Najpierw utwórz tagi w ustawieniach rozszerzenia Tagi.
+
+      untagged_enabled_label: Pozwól oceniać tematy bez tagów
+      untagged_enabled_help: Gdy wyłączone, tematy bez żadnych tagów nie pokazują widżetu oceny i nie można ich oceniać. Przydatne, gdy chcesz, by oceniane były tylko wybrane tagi. Domyślnie włączone.
+      secondary_solo_title: Tagi drugorzędne użyte samodzielnie (bez głównego)
+      secondary_solo_help: |
+        Dotyczy tematów otagowanych TYLKO tagiem drugorzędnym, bez głównego
+        (np. ogłoszenia utworzone z pominięciem limitu tagów).
+        Temat można oceniać, jeśli choć jeden z jego tagów drugorzędnych jest tu „Włączony".
+        To niezależne od nadpisań sub-tagów per-główny powyżej. Domyślnie: Wyłączone — włącz tylko te tagi drugorzędne, które mają być oceniane samodzielnie.
+      secondary_enable_all: Włącz wszystkie
+      secondary_disable_all: Wyłącz wszystkie
+
+      display_when_restricted_label: Co widzą użytkownicy bez prawa do oceniania
+      display_when_restricted_help: Wybierz, co widzą użytkownicy którzy nie mogą oceniać dyskusji (z powodu ograniczeń tag-owych). "Gwiazdki tylko do odczytu" zachowuje widoczną kontrolkę bez możliwości kliknięcia. "Ukryj" całkowicie usuwa widget. "Komunikat" zastępuje go krótką notką.
+      display_when_restricted_readonly: Gwiazdki tylko do odczytu (domyślnie)
+      display_when_restricted_hidden: Ukryj kontrolkę oceny
+      display_when_restricted_message: Pokaż krótki komunikat
+      hide_disabled_ratings_label: Ukryj oceny na tematach z wyłączonym ocenianiem
+      hide_disabled_ratings_help: Gdy tematu nie można już oceniać, bo wszystkie jego tagi są wyłączone (np. tag zmieniono na wyłączony po tym jak temat został oceniony), ukryj widżet oceny w całości — wraz z istniejącymi ocenami — dla osób, które nie mogą oceniać. Zapobiega nadużyciu „zdobądź oceny, potem zamroź wynik". Gdy wyłączone, takie tematy wracają do opcji wyświetlania powyżej. Domyślnie włączone. Osoby, które MOGĄ oceniać (np. grupy z bypass), nadal je widzą.
+
+      list_display_heading: Wyświetlanie oceny na liście tematów
+      list_style_desktop_label: Styl wyświetlania — desktop
+      list_style_mobile_label: Styl wyświetlania — mobilny
+      list_style_help: Jak ocena pojawia się na liście tematów (stronie głównej), wybierane osobno dla każdego urządzenia. Style kompaktowe oraz za tytułem są tylko do wyświetlania — nie pozwalają oceniać z listy.
+      list_style_full_meta: "Pełne gwiazdki — w oryginalnym miejscu (nad wyświetleniami / odpowiedziami)"
+      list_style_single_filled_meta: "Jedna gwiazdka + ocena, np. ★4.6 — w oryginalnym miejscu"
+      list_style_single_bucket_meta: "Jedna gwiazdka (pusta / pół / pełna) + ocena — w oryginalnym miejscu"
+      list_style_full_title: "Pełne gwiazdki — za tytułem"
+      list_style_single_filled_title: "Jedna gwiazdka + ocena, np. ★4.6 — za tytułem"
+      list_style_single_bucket_title: "Jedna gwiazdka (pusta / pół / pełna) + ocena — za tytułem"
+      single_clickable_label: Pojedyncza gwiazdka klikalna
+      single_clickable_help: Gdy włączone, kliknięcie pojedynczej gwiazdki (wraz z liczbą) otwiera listę ocen w oknie modalnym. Gdy wyłączone, gwiazdka jest tylko do wyświetlania — a tematy bez żadnej oceny nie pokazują nic.
+      single_modal_rate_label: Pozwól oceniać w oknie modalnym
+      single_modal_rate_help: Pokaż interaktywną kontrolkę oceny na górze okna modalnego z ocenami, aby użytkownicy mogli ocenić (lub zmienić ocenę) bez opuszczania listy.
+    permissions:
+      rate_label: Ocenianie tematów
+      toggle_label: Włączanie/wyłączanie oceny w tematach
+      reset_label: Resetowanie wszystkich ocen w tematach
+    support:
+      button: Wesprzyj rozwój
+      title: Wesprzyj tę modyfikację
+      description: Jeśli uważasz tę modyfikację za przydatną, rozważ wsparcie jej rozwoju niewielką darowizną. Każdy wkład pomaga utrzymać projekt przy życiu.
+      copy: Kopiuj adres
+      thanks: Dziękuję za wsparcie!
+
+  forum:
+    tooltip:
+      login_required: Musisz być zalogowany aby ocenić.
+      activation_required: Musisz aktywować swoje konto, aby oceniać.
+      rate_this: Oceń ten temat
+      rate_first: Oceń jako pierwszy!
+      your_rating: "Twoja ocena:"
+      restricted: Ocenianie nie jest dostępne dla twojej grupy w tym temacie.
+
+    rating_count: "Oceny: {count}"
+    last_rated: "Ostatnia ocena:"
+    rating_restricted_message: Ocenianie nie jest dostępne dla twojej grupy.
+
+    controls:
+      enable_rating: Włącz ocenę
+      disable_rating: Wyłącz ocenę
+      reset_ratings: Wyczyść wszystkie oceny
+
+    reset_modal:
+      title: Resetowanie ocen
+      message: "Czy na pewno chcesz usunąć wszystkie oceny ({count}) tego tematu? Tej operacji nie można cofnąć."
+      confirm: Resetuj oceny
+      cancel: Anuluj
+
+    ratings_modal:
+      title: "Oceny ({count})"
+      empty: Brak ocen.
+      deleted_user: "[usunięty]"
+      updated_prefix: "zmieniono "
+
+  # Komunikaty walidacji z backendu (pokazywane przez odpowiedź 422, gdyby zapis
+  # ominął zabezpieczenia frontendu). Trzymane jako tłumaczenie, nie na sztywno w kontrolerze.
+  api:
+    rating_out_of_range: Ocena musi mieścić się w zakresie od 1 do 10 (0.5-5.0 gwiazdki).
+    rating_disabled: Ocenianie jest wyłączone dla tego tematu.
+
+# Wspólna sekcja awatarów, używana przez flarum-topic-rating i flarum-thumb-sliders.
+# Tłumaczenia są globalne, więc te klucze są dostępne także na stronie ustawień
+# Thumb Sliders, gdy oba rozszerzenia są zainstalowane.
+tryhackx-avatars:
+  admin:
+    title: "Awatary na liście tematów"
+    help: "Wybierz jak zachowuje się awatar autora na liście tematów, osobno dla desktopu i wersji mobilnej. To ustawienie współdzielone — zmiana tutaj zmienia je także w Thumb Sliders / Topic Rating, zależnie od tego co masz zainstalowane."
+    thumbs_inactive: "Thumb Sliders nie jest aktywne, więc nie ma miniatury, którą można zastąpić awatar. Opcje \"zastąp\" poniżej działają jak \"Pokaż awatar\" — użyj \"Ukryj awatar\", aby usunąć awatary (np. dla lżejszej listy na telefonie)."
+    save_error: "Nie udało się zapisać ustawienia awatara. Spróbuj ponownie."
+    device_desktop: "Desktop"
+    device_mobile: "Mobilny"
+    mode_show: "Pokaż awatar"
+    mode_with_image: "Zastąp miniaturą, gdy temat ma obraz"
+    mode_always: "Zawsze zastępuj miniaturą"
+    mode_hide: "Ukryj awatar"
+    hint_show: "Awatar autora jest zawsze pokazywany."
+    hint_hide: "Awatar nigdy nie jest pokazywany. Jeśli dostępna jest miniatura, zajmuje jego miejsce; w przeciwnym razie wiersz po prostu nie ma awatara."
+    hint_with_image: "Miniatura zastępuje awatar tylko gdy temat ma prawdziwy obraz; w przeciwnym razie pokazywany jest awatar."
+    hint_always: "Miniatura (lub skonfigurowany zamiennik) zawsze zastępuje awatar; tematy bez żadnej miniatury zachowują awatar."
+    hint_replace_no_thumbs: "Thumb Sliders jest nieaktywne, więc awatar jest pokazywany jak zwykle. Zainstaluj/włącz Thumb Sliders, aby zastąpić go miniaturą, albo wybierz \"Ukryj awatar\"."

@@ -1,0 +1,148 @@
+tryhackx-topic-rating:
+  admin:
+    settings:
+      enabled_label: Enable Topic Rating
+      enabled_help: Allow users to rate discussions with a 5-star system.
+      show_on_list_label: Show rating in discussion list
+      show_on_list_help: Display the star rating on the discussion list (home page). When off, ratings still appear on the discussion page. Enabled by default.
+      rate_on_list_label: Allow rating from the discussion list
+      rate_on_list_help: Let users rate topics directly from the discussion list by clicking the stars (with hover preview), just like on the discussion page. When off, the list shows the rating read-only. Enabled by default.
+      hide_empty_for_nonvoters_label: Hide empty stars from users who can't rate
+      hide_empty_for_nonvoters_help: On the discussion list, when a topic has no ratings yet, don't render the star widget for users who can't rate it (guests, restricted groups). Topics that already have ratings still show. Off by default.
+      allow_unactivated_label: Allow unactivated accounts to rate
+      allow_unactivated_help: When enabled, users who haven't confirmed their email can still rate discussions.
+      show_moderation_controls_label: Always show rating controls in the discussion menu
+      show_moderation_controls_help: By default, "Disable Rating" and "Reset All Ratings" appear in the discussion's ⋮ menu only when the rating is shown on that topic — they're hidden when its tags disable rating there (managing a hidden rating does nothing). Turn this on to always show them — e.g. to manage ratings on topics where the widget is hidden. Still requires the matching moderation permissions. Off by default.
+      realtime_enabled_label: Live rating updates
+      realtime_enabled_help: When on, open discussion pages poll in the background so ratings update in near real time. Turn off to disable all background polling — ratings then refresh only on the user's own action or a page reload (lighter on the server). On by default.
+      poll_interval_label: Live update interval (seconds)
+      poll_interval_help: How often an open discussion page checks for new ratings, in seconds (5–300, default 8). Higher values cut background server load on busy forums; the rating average just updates a little less promptly. Applies to the discussion page — the ratings popup keeps its own faster refresh.
+
+      tag_config_label: Per-tag rating permissions
+      tag_config_help: |
+        Active only when the bundled Tags extension is enabled. For each main tag pick:
+        "Enabled" (default — everyone with the global Rate permission can rate),
+        "Disabled" (nobody can rate — unless they hold the bypass permission),
+        or "Allow groups" (only the selected groups can rate).
+        When a main tag is Enabled or Allow groups, expand it to override individual sub-tags
+        ("Inherit" = follow the parent).
+        When a discussion has multiple tags, the MOST PERMISSIVE setting wins — a single "Disabled" tag does NOT block rating if another of its tags allows it. A discussion is non-rateable only when ALL of its tags are "Disabled" (bypass groups can still rate).
+      tag_admin_note: |
+        Flarum hard-grants admins EVERY permission (including Bypass) — you can't uncheck it in the permission grid below. To control this for this extension, use the "Bypass tag restrictions" group picker below. Admin bypass is active only when the Admin group is selected.
+      bypass_groups_label: Bypass tag restrictions
+      bypass_groups_help: Select groups that can bypass tag rating restrictions. If none are selected, no groups (except administrators, depending on the setting above) can bypass.
+      bypass_select_all: Select all
+      bypass_clear_all: Clear
+      tag_hierarchy_hint: All tags are flat (no parent set). To get expandable sub-tags shown here, edit a tag in Admin → Tags and set "Parent tag".
+      tags_only_secondary: No primary tags found. Mark at least one tag as primary in Admin → Tags so it appears as a top-level card here.
+      tag_overrides_count: "{count} override(s)"
+      tag_state_enabled: Enabled
+      tag_state_inherit: Inherit
+      tag_state_disabled: Disabled
+      tag_state_groups: Allow groups
+      tag_no_groups: No selectable groups available.
+      tag_expand_all: Expand all
+      tag_collapse_all: Collapse all
+      tags_unavailable: The Tags extension must be installed and enabled to use per-tag rating permissions.
+      tags_empty: No tags found. Create tags first in the Tags settings.
+
+      untagged_enabled_label: Allow rating on discussions with no tags
+      untagged_enabled_help: When off, discussions that have no tags at all show no rating widget and can't be rated. Useful if you only want specific tags to be rateable. On by default.
+      secondary_solo_title: Secondary tags used on their own (no primary tag)
+      secondary_solo_help: |
+        Controls discussions tagged with ONLY a secondary tag and no primary tag
+        (for example announcements posted with the tag-count restriction bypassed).
+        A discussion can be rated if at least one of its secondary tags is "Enabled" here.
+        This is separate from the per-primary sub-tag overrides above. Default: Disabled — turn on only the secondary tags you want rateable on their own.
+      secondary_enable_all: Enable all
+      secondary_disable_all: Disable all
+
+      display_when_restricted_label: What to show users without rating permission
+      display_when_restricted_help: Choose what users who can't rate a discussion (because of tag restrictions) see. "Read-only stars" keeps the visual but disables clicking. "Hidden" removes the widget entirely. "Message" replaces it with a short note.
+      display_when_restricted_readonly: Read-only stars (default)
+      display_when_restricted_hidden: Hide the rating widget
+      display_when_restricted_message: Show a short message
+      hide_disabled_ratings_label: Hide ratings on rating-disabled topics
+      hide_disabled_ratings_help: When a topic can no longer be rated because all of its tags are disabled (e.g. its tag was switched to a disabled one after it was rated), hide the rating widget entirely — including any existing ratings — for users who can't rate. Prevents "rate it, then lock in the score" abuse. When off, such topics fall back to the display option above. On by default. Users who CAN rate (e.g. bypass groups) still see it.
+
+      list_display_heading: Rating display in the discussion list
+      list_style_desktop_label: Display style — desktop
+      list_style_mobile_label: Display style — mobile
+      list_style_help: How the rating appears on the discussion list (home page), chosen separately per device. Compact and after-title styles are display-only — they don't let users rate from the list.
+      list_style_full_meta: "Full stars — in place (above views / replies)"
+      list_style_single_filled_meta: "One star + score, e.g. ★4.6 — in place"
+      list_style_single_bucket_meta: "One star (empty / half / full) + score — in place"
+      list_style_full_title: "Full stars — after the title"
+      list_style_single_filled_title: "One star + score, e.g. ★4.6 — after the title"
+      list_style_single_bucket_title: "One star (empty / half / full) + score — after the title"
+      single_clickable_label: Make the single star clickable
+      single_clickable_help: When on, clicking the single star (and its number) opens the ratings list in a modal. When off, the star is display-only — and topics with no rating yet show nothing at all.
+      single_modal_rate_label: Allow rating inside the modal
+      single_modal_rate_help: Show an interactive rating control at the top of the ratings modal, so users can rate (or change their rating) without leaving the list.
+    permissions:
+      rate_label: Rate discussions
+      toggle_label: Enable/Disable rating on discussions
+      reset_label: Reset all ratings on discussions
+    support:
+      button: Support Development
+      title: Support This Extension
+      description: If you find this extension useful, please consider supporting its development with a small donation. Every contribution helps keep the project alive and maintained.
+      copy: Copy address
+      thanks: Thank you for your support!
+
+  forum:
+    tooltip:
+      login_required: You must be logged in to rate.
+      activation_required: You must activate your account to rate.
+      rate_this: Rate this topic
+      rate_first: Be the first to rate!
+      your_rating: "Your rating:"
+      restricted: Rating is not available for your group on this topic.
+
+    rating_count: "Ratings: {count}"
+    last_rated: "Last rated:"
+    rating_restricted_message: Rating is not available for your group.
+
+    controls:
+      enable_rating: Enable Rating
+      disable_rating: Disable Rating
+      reset_ratings: Reset All Ratings
+
+    reset_modal:
+      title: Reset All Ratings
+      message: "Are you sure you want to delete all {count} rating(s) for this discussion? This action cannot be undone."
+      confirm: Reset Ratings
+      cancel: Cancel
+
+    ratings_modal:
+      title: "Ratings ({count})"
+      empty: No ratings yet.
+      deleted_user: "[deleted]"
+      updated_prefix: "updated "
+
+  # Backend validation messages (shown via the 422 response if a write slips past
+  # the frontend guards). Kept translatable rather than hardcoded in the controller.
+  api:
+    rating_out_of_range: Rating must be between 1 and 10 (0.5-5.0 stars).
+    rating_disabled: Rating is disabled for this discussion.
+
+# Shared avatar section, used by BOTH flarum-topic-rating and flarum-thumb-sliders.
+# Keep this block identical in both extensions' locale files so the strings are
+# present whichever extension is installed (duplicate keys merge harmlessly).
+tryhackx-avatars:
+  admin:
+    title: "Avatars in the discussion list"
+    help: "Choose how the author avatar behaves in the discussion list, separately for desktop and mobile. This is a shared setting — changing it here also updates it in Thumb Sliders / Topic Rating, whichever you have installed."
+    thumbs_inactive: "Thumb Sliders is not active, so there is no thumbnail to replace the avatar with. The \"replace\" options below behave like \"Show avatar\" — use \"Hide avatar\" to drop avatars (e.g. for a lighter list on mobile)."
+    save_error: "Could not save the avatar setting. Please try again."
+    device_desktop: "Desktop"
+    device_mobile: "Mobile"
+    mode_show: "Show avatar"
+    mode_with_image: "Replace with thumbnail when the topic has an image"
+    mode_always: "Always replace with thumbnail"
+    mode_hide: "Hide avatar"
+    hint_show: "The author avatar is always shown."
+    hint_hide: "The avatar is never shown. If a thumbnail is available it stands in for it; otherwise the row simply has no avatar."
+    hint_with_image: "The thumbnail replaces the avatar only when the topic has a real image; otherwise the avatar is shown."
+    hint_always: "The thumbnail (or its configured fallback) always replaces the avatar; topics with no thumbnail at all keep the avatar."
+    hint_replace_no_thumbs: "Thumb Sliders is inactive, so the avatar is shown as usual. Install/enable Thumb Sliders to replace it with a thumbnail, or choose \"Hide avatar\"."

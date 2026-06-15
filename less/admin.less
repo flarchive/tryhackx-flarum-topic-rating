@@ -1,0 +1,581 @@
+.TopicRating-support {
+  text-align: center;
+
+  .Button .icon {
+    color: #e74c3c;
+  }
+}
+
+.SupportModal .Modal-body {
+  padding: 20px 24px;
+}
+
+.SupportModal-description {
+  color: var(--muted-color);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.SupportModal-wallets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SupportModal-wallet {
+  border: 1px solid var(--control-bg);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.SupportModal-walletHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+
+  i {
+    font-size: 18px;
+  }
+}
+
+.SupportModal-walletAddress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  code {
+    flex: 1;
+    font-size: 11px;
+    padding: 6px 10px;
+    background: var(--control-bg);
+    border-radius: 4px;
+    word-break: break-all;
+    line-height: 1.4;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    user-select: all;
+  }
+}
+
+.SupportModal-copyBtn {
+  flex-shrink: 0;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+
+  &--copied {
+    color: #2e7d32 !important;
+    background: rgba(46, 125, 50, 0.12) !important;
+  }
+}
+
+.SupportModal-thanks {
+  text-align: center;
+  color: var(--muted-color);
+  font-size: 13px;
+  margin: 16px 0 0;
+  font-style: italic;
+}
+
+.TagPermissionTree {
+  &-adminNote {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid var(--primary-color, #3498db);
+    padding: 6px 10px;
+    margin: 6px 0 10px;
+    border-radius: 3px;
+
+    i {
+      color: var(--primary-color, #3498db);
+      margin-right: 4px;
+    }
+  }
+
+  &-error {
+    color: #e74c3c;
+    margin: 6px 0;
+  }
+
+  &-toolbar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  &-toolBtn {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    color: var(--muted-color) !important;
+
+    &:hover { color: var(--text-color) !important; }
+
+    i { margin-right: 4px; }
+  }
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 12px;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+  }
+
+  &-empty {
+    grid-column: 1 / -1;
+    padding: 12px;
+    margin: 0;
+  }
+
+  &-row {
+    &--state-disabled > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      opacity: 0.55;
+      text-decoration: line-through;
+    }
+    &--state-groups > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      font-weight: 600;
+    }
+    &--state-inherit > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      font-style: italic;
+      opacity: 0.85;
+    }
+    &--state-inherit-disabled > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      font-style: italic;
+      opacity: 0.55;
+      text-decoration: line-through;
+    }
+    &--state-inherit-groups > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      font-style: italic;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+    &--state-inherit-enabled > .TagPermissionTree-rowMain .TagPermissionTree-name {
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    &--root {
+      border: 1px solid var(--control-bg);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.02);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.15s, box-shadow 0.15s;
+
+      &:hover {
+        border-color: var(--muted-color);
+      }
+
+      .TagPermissionTree-rowMain {
+        padding-left: 0 !important;
+      }
+
+      .TagPermissionTree-groups {
+        padding-left: 0 !important;
+        padding-bottom: 0;
+      }
+    }
+
+    &--child {
+      background: transparent;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &-rowMain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px 4px 0;
+    min-height: 34px;
+
+    &--expandable {
+      cursor: pointer;
+    }
+  }
+
+  &-toggle,
+  &-togglePlaceholder {
+    width: 20px;
+    flex: 0 0 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  &-toggle {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 2px 4px;
+    color: var(--muted-color);
+    line-height: 1;
+
+    &:hover { color: var(--text-color); }
+  }
+
+  &-label {
+    flex: 1 1 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  &-swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &-icon {
+    color: var(--muted-color);
+    font-size: 11px;
+  }
+
+  &-name {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-childCount {
+    font-size: 11px;
+    color: var(--muted-color);
+    flex-shrink: 0;
+  }
+
+  &-overridesBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(46, 125, 50, 0.15);
+    color: #2e7d32;
+    flex-shrink: 0;
+
+    i { font-size: 8px; }
+  }
+
+  &-stateWrap {
+    flex: 0 0 auto;
+
+    select {
+      min-width: 130px;
+      padding: 3px 22px 3px 8px !important;
+      font-size: 12px !important;
+      height: auto !important;
+      line-height: 1.4 !important;
+    }
+  }
+
+  &-groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0 10px 8px;
+    justify-content: center;
+  }
+
+  &-groupPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 11px;
+    border: 1px solid var(--control-bg);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    line-height: 1.4;
+
+    &:hover { background: rgba(255, 255, 255, 0.05); }
+
+    &--selected {
+      border-color: transparent;
+      font-weight: 600;
+    }
+  }
+
+  &-groupPillIcon {
+    font-size: 10px;
+  }
+
+  &-groupCheck {
+    font-size: 9px;
+  }
+
+  &-children {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 8px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &-hierarchyHint {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: var(--muted-color);
+    font-style: italic;
+
+    i { margin-right: 4px; }
+  }
+}
+
+// Standalone secondary-tag list (governs discussions tagged with ONLY a
+// secondary tag, no primary). Rendered below the primary tree by the same
+// TagPermissionTree component; rows reuse the .TagPermissionTree-row--root look.
+.TagPermissionSecondaryTree {
+  margin-top: 18px;
+  border-top: 1px solid var(--control-bg);
+  padding-top: 12px;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &-caret {
+    width: 12px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted-color);
+  }
+
+  &-title {
+    flex: 0 1 auto;
+  }
+
+  &-help {
+    margin: 6px 0 10px;
+  }
+
+  // Single ≤360px column so the rows stack vertically like the primary tree
+  // (whose grid collapses to one 360px column inside the column-flex Form-group).
+  // Without this the list fills the help-text-stretched wrapper and goes wide.
+  &-list {
+    display: grid;
+    grid-template-columns: minmax(0, 360px);
+    gap: 12px;
+  }
+}
+
+.BypassGroupPicker {
+  margin-top: 15px;
+
+  &-toolbar {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  &-toolBtn {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    color: var(--muted-color) !important;
+
+    &:hover:not(:disabled) { color: var(--text-color) !important; }
+    &:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    i { margin-right: 4px; }
+  }
+
+  &-groups {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+    justify-content: center;
+  }
+
+  &-groupPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    border: 1px solid var(--control-bg);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.2s, border-color 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &--selected {
+      border-color: transparent;
+      font-weight: 600;
+    }
+  }
+
+  &-groupPillIcon {
+    font-size: 11px;
+  }
+
+  &-groupCheck {
+    font-size: 10px;
+    margin-left: 2px;
+  }
+}
+
+// Section heading used to separate the discussion-list display settings.
+.TopicRating-settingHeading {
+  margin: 22px 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+// Shared avatar section (mirrored in flarum-thumb-sliders/less/admin.less).
+.AvatarSettings {
+  margin-top: 16px;
+
+  &-notice {
+    margin: 6px 0 10px;
+    padding: 8px 12px;
+    background: rgba(52, 152, 219, 0.08);
+    border-left: 3px solid var(--primary-color, #3498db);
+    border-radius: 3px;
+    font-style: normal;
+
+    i {
+      margin-right: 4px;
+      color: var(--primary-color, #3498db);
+    }
+  }
+
+  &-error {
+    margin: 8px 0;
+    padding: 8px 12px;
+    background: rgba(192, 57, 43, 0.1);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    color: #c0392b;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  &-devices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  &-device {
+    border: 1px solid var(--control-bg);
+    border-radius: 8px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  &-deviceHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  &-deviceIcon {
+    color: var(--muted-color);
+  }
+
+  &-deviceHint {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .Select {
+    width: 100%;
+  }
+}
+
+// Rating display settings: per-device style selects + cascading single-star
+// options. The modal-rate toggle is nested under the clickable toggle.
+.RatingListDisplaySettings {
+  // Breathing room between fields — otherwise each select sits flush against
+  // the next field's label (desktop -> mobile, mobile -> clickable toggle).
+  .Form-group {
+    margin-bottom: 20px;
+  }
+
+  &-deviceIcon {
+    color: var(--muted-color);
+    margin-right: 4px;
+  }
+
+  .Select {
+    width: 100%;
+  }
+
+  // Extra gap before the cascading toggles so they don't hug the mobile select.
+  &-cascade {
+    margin-top: 4px;
+  }
+
+  &-subCascade {
+    margin-left: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--control-bg);
+  }
+}
+
+// Keep the native <select> at its natural (content) width so it isn't stretched
+// edge-to-edge across the column on desktop. We deliberately do NOT set
+// `width: 100%` on the <select> — that was what over-stretched it. Instead,
+// `max-width: 100%` caps it to its container (card / column) so long labels
+// clip with an ellipsis on narrow widths instead of overflowing (the full label
+// still shows when the native picker opens). Covers rating-style + avatar selects.
+.RatingListDisplaySettings,
+.AvatarSettings {
+  .Select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .Select select,
+  .Select-input {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
