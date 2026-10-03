@@ -2,13 +2,14 @@
 
 > **Read-only archive of released versions of tryhackx/flarum-topic-rating.** Not for installation: use [Packagist](https://packagist.org/packages/tryhackx/flarum-topic-rating) or the [upstream repository](https://github.com/TryHackX/flarum-topic-rating).
 
-**0** versions archived · Latest: [`2.4.11`](https://github.com/flarchive/tryhackx-flarum-topic-rating/tree/archive/v2.4.11) · License: `MIT` · Flarum: `^2.0.0-rc.1`
+**2** versions archived · Latest: [`2.4.11`](https://github.com/flarchive/tryhackx-flarum-topic-rating/tree/archive/v2.4.11) · License: `MIT` · Flarum: `^2.0.0-rc.1`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `1.0.5` | 2026-04-23 | `^1.2` | [Browse](https://github.com/flarchive/tryhackx-flarum-topic-rating/tree/archive/v1.0.5) |
+| `2.4.11` | 2026-06-15 | `^2.0.0-rc.1` | [Browse](https://github.com/flarchive/tryhackx-flarum-topic-rating/tree/archive/v2.4.11) |
 
 Catalog entry: [packages/tryhackx-flarum-topic-rating.json](https://github.com/flarchive/archive-index/blob/main/packages/tryhackx-flarum-topic-rating.json)
 
