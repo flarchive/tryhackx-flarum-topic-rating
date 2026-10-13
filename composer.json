@@ -1,0 +1,79 @@
+{
+    "name": "tryhackx/flarum-topic-rating",
+    "description": "Interactive 5-star topic rating system for Flarum with half-star precision, live hover previews, real-time updates, per-device list styles, advanced per-tag permissions and an author-rating \"review mode\".",
+    "keywords": [
+        "flarum",
+        "extension",
+        "rating",
+        "stars",
+        "5-star",
+        "half-star",
+        "discussion",
+        "tag-permissions",
+        "moderation",
+        "review",
+        "review-mode"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0.0-rc.1"
+    },
+    "require-dev": {
+        "flarum/testing": "^2.0",
+        "flarum/tags": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "TryHackX",
+            "email": "contact@tryhackx.org",
+            "homepage": "https://github.com/TryHackX"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/TryHackX/flarum-topic-rating/issues",
+        "source": "https://github.com/TryHackX/flarum-topic-rating"
+    },
+    "autoload": {
+        "psr-4": {
+            "TryHackX\\TopicRating\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TryHackX\\TopicRating\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@test:unit",
+            "@test:integration"
+        ],
+        "test:unit": "phpunit -c tests/phpunit.unit.xml",
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all PHP tests.",
+        "test:unit": "Runs the PHP unit tests.",
+        "test:integration": "Runs the PHP integration tests (needs test:setup once).",
+        "test:setup": "Installs the throw-away Flarum the integration tests run against."
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Topic Rating",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-star",
+                "color": "#ffffff",
+                "backgroundColor": "#f0ad4e"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

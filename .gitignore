@@ -1,0 +1,5 @@
+/vendor/
+/composer.lock
+/js/node_modules/
+/tests/.phpunit.cache/
+.phpunit.result.cache
